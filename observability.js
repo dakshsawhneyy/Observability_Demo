@@ -23,3 +23,28 @@ Stress CPU Usage
 
 // ###################
 User → API → Auth → DB → Payment
+
+// ###############
+// Scenario: 
+“Your API response time jumped from 100ms → 2 seconds”
+“What do you check first?”
+
+Metrics
+-- Latency graph spikes
+-- Request count maybe increased
+ Detect problem
+
+Logs
+Look for:
+-- DB connection timeout
+-- Slow query detected
+ Find symptoms
+
+Traces
+See request path:
+-- API → DB (2s delay)
+ Root cause = DB slow
+
+“Metrics told us something is wrong
+Logs told us what is wrong
+Traces told us where it is wrong”

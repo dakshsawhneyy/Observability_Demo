@@ -5,8 +5,8 @@ const app = express();
 app.get('/', (req, res) => {
   console.log("Request received");
   console.log("User logged in");
-  console.log("Payment failed");
-  console.error("DB connection timeout");
+  // console.log("Payment failed");
+  // console.error("DB connection timeout");
   res.send("Hello");
 });
 

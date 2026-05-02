@@ -21,3 +21,5 @@ Stress CPU Usage
 - stress --cpu 4 --timeout 60
 - stress --vm 1 --vm-bytes 1G --timeout 60s
 
+// ###################
+User → API → Auth → DB → Payment

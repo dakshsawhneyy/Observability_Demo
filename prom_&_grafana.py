@@ -69,3 +69,65 @@ services:
     image: grafana/grafana
     ports:
       - "3001:3000"
+
+
+###############################
+# Prometheus Config
+
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: 'python-app'
+    static_configs:
+      - targets: ['app:5000']
+
+
+###############################
+PROMETHEUS UI
+
+Open:
+- http://localhost:9090
+
+Query:
+- http_requests_total
+
+########### generate traffic
+for i in {1..50}; do curl localhost:5000; done
+
+
+################## grafana
+GRAFANA (VISUAL PART)
+
+Open: http://localhost:3001
+Login: admin/admin
+Add Prometheus datasource
+
+Create dashboard:
+    Query:
+        - http_requests_total
+
+# Metrics
+rate(http_requests_total[1m])
+
+
+#####################
+# Add Latency Metric
+
+from prometheus_client import Histogram
+
+REQUEST_LATENCY = Histogram(
+    'http_request_latency_seconds',
+    'Latency of HTTP requests in seconds',
+    buckets=(0.1, 0.3, 0.5, 1.0, 2.0)
+)
+
+# Wrap your endpoint
+@app.route('/')
+def home():
+    with REQUEST_LATENCY.time():
+        time.sleep(random.uniform(0.1, 1.5))  # simulate delay
+        return "Hello"
+
+# Query
+rate(http_request_latency_seconds_count[1m])

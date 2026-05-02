@@ -19,3 +19,5 @@ Stress CPU Usage
 
 - sudo apt install stress
 - stress --cpu 4 --timeout 60
+- stress --vm 1 --vm-bytes 1G --timeout 60s
+

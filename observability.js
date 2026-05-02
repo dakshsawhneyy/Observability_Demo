@@ -15,3 +15,7 @@ app.listen(3000);
 // Run app and show logs
 
 // ########################################
+Stress CPU Usage
+
+- sudo apt install stress
+- stress --cpu 4 --timeout 60

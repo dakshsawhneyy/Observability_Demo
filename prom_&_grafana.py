@@ -57,6 +57,8 @@ services:
     build: .
     ports:
       - "5000:5000"
+    networks:
+      - prom
 
   prometheus:
     image: prom/prometheus
@@ -64,11 +66,18 @@ services:
       - "9090:9090"
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - prom
 
   grafana:
     image: grafana/grafana
     ports:
       - "3001:3000"
+    networks:
+      - prom
+
+networks:
+  prom:
 
 
 ###############################

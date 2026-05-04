@@ -97,4 +97,28 @@ Kibana shows dashboard
 
 
 ##################### Demo
+Launch Two Instances -- ELK and Server
+
+Install Java (Required for Elasticsearch & Logstash)
+
+# Elastic Search
+Install Elastic Search
+
+# Configure Elasticsearch
+sudo vi /etc/elasticsearch/elasticsearch.yml 
+
+# Modify: 
+network.host: 0.0.0.0  # Makes Elasticsearch listen on all network interfaces
+cluster.name: my-cluster # Defines the name of the Elasticsearch cluster
+node.name: node-1 # Gives a unique name to this node
+discovery.type: single-node # “Run as a single-node cluster”
+
+# Why Cluster ?
+# Data is too big, queries are too fast, and systems must not fail.
+
+# A cluster is a group of machines (nodes) working together as one system.
+
+sudo systemctl start elasticsearch 
+sudo systemctl enable elasticsearch 
+sudo systemctl status elasticsearch 
 

@@ -199,3 +199,6 @@ output.logstash:
 sudo systemctl start filebeat 
 sudo systemctl enable filebeat 
 sudo systemctl status filebeat
+
+# Verify Filebeat is Sending Logs
+sudo filebeat test output

@@ -181,3 +181,5 @@ sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u kibana_system
 sudo journalctl -u kibana -n 50
 
 sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
+
+################### Application

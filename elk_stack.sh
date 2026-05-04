@@ -94,3 +94,7 @@ Filebeat ships log
 Logstash parses JSON
 Elasticsearch indexes it
 Kibana shows dashboard
+
+
+##################### Demo
+

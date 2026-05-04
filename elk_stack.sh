@@ -122,3 +122,27 @@ sudo systemctl start elasticsearch
 sudo systemctl enable elasticsearch 
 sudo systemctl status elasticsearch 
 
+####### LogStash
+sudo apt install logstash -y
+
+# Configure Logstash to Accept Logs
+sudo vi /etc/logstash/conf.d/logstash.conf
+
+input { 
+  beats { 
+    port => 5044 
+  } 
+} 
+filter { 
+  grok { 
+    match => { "message" => "%{TIMESTAMP_ISO8601:log_timestamp} %{LOGLEVEL:log_level} 
+    %{GREEDYDATA:log_message}" } 
+  } 
+} 
+output { 
+  elasticsearch { 
+    hosts => ["http://localhost:9200"] 
+    index => "logs-%{+YYYY.MM.dd}" 
+  } 
+  stdout { codec => rubydebug } 
+} 

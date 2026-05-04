@@ -122,6 +122,10 @@ sudo systemctl start elasticsearch
 sudo systemctl enable elasticsearch 
 sudo systemctl status elasticsearch 
 
+# Elastic Search is reacheable or not
+curl -k -u elastic https://localhost:9200
+sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
+
 ####### LogStash
 sudo apt install logstash -y
 
@@ -146,3 +150,32 @@ output {
   stdout { codec => rubydebug } 
 } 
 
+sudo systemctl start logstash 
+sudo systemctl enable logstash 
+sudo systemctl status logstash
+
+# Allow Traffic on Port 5044 
+sudo ufw allow 5044/tcp 
+
+#################### Kibana
+sudo apt install kibana -y 
+
+# Configure Kibana
+sudo vi /etc/kibana/kibana.yml 
+
+# Modify: 
+server.host: "0.0.0.0" 
+elasticsearch.hosts: ["http://localhost:9200"] 
+
+sudo systemctl start kibana 
+sudo systemctl enable kibana 
+sudo systemctl status kibana 
+
+# Allow Traffic on Port 5601 
+sudo ufw allow 5601/tcp 
+
+# Open a browser and go to: 
+http://<ELK_Server_Public_IP>:5601 
+
+sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u kibana_system
+sudo journalctl -u kibana -n 50

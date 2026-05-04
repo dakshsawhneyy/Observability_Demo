@@ -85,3 +85,12 @@ FileBeat
 
 Flow Diagram
 Servers → Beats → Logstash → Elasticsearch → Kibana
+
+Real Example:
+User login failure:
+
+App generates log
+Filebeat ships log
+Logstash parses JSON
+Elasticsearch indexes it
+Kibana shows dashboard

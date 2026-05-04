@@ -135,8 +135,7 @@ input {
 } 
 filter { 
   grok { 
-    match => { "message" => "%{TIMESTAMP_ISO8601:log_timestamp} %{LOGLEVEL:log_level} 
-    %{GREEDYDATA:log_message}" } 
+    match => { "message" => "%{TIMESTAMP_ISO8601:log_timestamp} %{LOGLEVEL:log_level} %{GREEDYDATA:log_message}" } 
   } 
 } 
 output { 
@@ -146,3 +145,4 @@ output {
   } 
   stdout { codec => rubydebug } 
 } 
+

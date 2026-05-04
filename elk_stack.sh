@@ -183,3 +183,19 @@ sudo journalctl -u kibana -n 50
 sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
 
 ################### Application
+# Install Filebeat on the Server from Tools Installation
+
+sudo vi /etc/filebeat/filebeat.yml
+
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /home/ubuntu/app.log
+
+output.logstash: 
+  hosts: ["<ELK_Server_Private_IP>:5044"]  # instance IP
+
+sudo systemctl start filebeat 
+sudo systemctl enable filebeat 
+sudo systemctl status filebeat

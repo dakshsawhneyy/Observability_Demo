@@ -145,6 +145,10 @@ filter {
 output { 
   elasticsearch { 
     hosts => ["https://localhost:9200"] 
+    user => "elastic"
+    password => "YOUR_PASSWORD"  # sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
+    ssl => true
+    ssl_certificate_verification => false
     index => "logs-%{+YYYY.MM.dd}" 
   } 
   stdout { codec => rubydebug } 

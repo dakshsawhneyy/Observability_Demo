@@ -62,8 +62,19 @@ Benefits:
 ELK Stack  
 
 Elasticsearch
-Stores logs
-Super fast search
-JSON-based
+- Stores logs
+- Super fast search
+- JSON-based
+Think: “Google for your logs”
 
-👉 Think: “Google for your logs”
+Logstash
+- Collects logs
+- Transforms them
+- Sends to Elasticsearch
+Think: “Log processor”
+
+Kibana
+- Visualizes logs
+- Dashboards & charts
+Think: “UI for logs”
+

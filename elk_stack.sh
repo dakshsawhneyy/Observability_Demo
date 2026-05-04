@@ -144,7 +144,7 @@ filter {
 } 
 output { 
   elasticsearch { 
-    hosts => ["http://localhost:9200"] 
+    hosts => ["https://localhost:9200"] 
     index => "logs-%{+YYYY.MM.dd}" 
   } 
   stdout { codec => rubydebug } 

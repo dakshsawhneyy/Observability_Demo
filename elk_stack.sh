@@ -81,3 +81,7 @@ Think: “UI for logs”
 FileBeat
 - Lightweight agents on servers
 - Send logs to Logstash
+
+
+Flow Diagram
+Servers → Beats → Logstash → Elasticsearch → Kibana

@@ -78,3 +78,6 @@ Kibana
 - Dashboards & charts
 Think: “UI for logs”
 
+FileBeat
+- Lightweight agents on servers
+- Send logs to Logstash

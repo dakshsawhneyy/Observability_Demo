@@ -202,3 +202,6 @@ sudo systemctl status filebeat
 
 # Verify Filebeat is Sending Logs
 sudo filebeat test output
+
+# Check Filebeat logs
+sudo tail -f /var/log/filebeat/filebeat

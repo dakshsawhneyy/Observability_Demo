@@ -179,3 +179,5 @@ http://<ELK_Server_Public_IP>:5601
 
 sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u kibana_system
 sudo journalctl -u kibana -n 50
+
+sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic

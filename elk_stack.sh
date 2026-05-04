@@ -59,5 +59,11 @@ Benefits:
 - Better security tracking
 
 ##################################
+ELK Stack  
 
+Elasticsearch
+Stores logs
+Super fast search
+JSON-based
 
+👉 Think: “Google for your logs”

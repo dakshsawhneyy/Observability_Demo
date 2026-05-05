@@ -52,3 +52,38 @@ Instead of reading every single page to find what you need, you look at the tag 
 Prometheus → metrics
 Loki → logs
 Both use labels
+
+#########################
+Loki Architecture
+
+Application logs → Promtail → Loki → Grafana
+
+Promtail:
+- agent
+- collects logs
+- adds labels
+- sends to Loki
+
+Loki:
+- stores logs
+- indexes labels only
+- uses chunks
+
+Grafana:
+- query logs
+- visualize
+
+###########################
+Streams
+“A stream is a set of logs sharing the same labels.”
+
+Example:
+- app=frontend
+- env=prod
+
+{app="mysql", env="prod"} and {app="mysql", env="dev"} are two different streams
+
+Labels:
+- labels = metadata
+- used for querying
+

@@ -74,4 +74,33 @@ PromQL queries
 Grafana dashboards
 
 ################################
-Execution
+# Execution
+
+# Application present in local
+# Build and push to dockerhub
+
+# Create Deployment and Service
+
+# Install Helm Kube-Prometheus-Stack
+
+# Create ServiceDiscovery
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: observability-servicemonitor
+  # namespace: app
+  labels:
+    release: monitor      # MUST match your Helm release name
+    app: observability-app
+spec:
+  selector:
+    matchLabels:          # match service with metadata.labels.app = house-price-serving
+      app: observability-app     # MUST match labels in your Service
+  namespaceSelector:
+    matchNames:
+      - default             # your service is in default namespace
+  endpoints:
+    - port: http            # MUST match service.port.name
+      path: /metrics
+      interval: 10s
+      scrapeTimeout: 5s

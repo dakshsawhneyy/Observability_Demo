@@ -45,3 +45,33 @@ How will Prometheus know targets?
 
 “This is where Service Discovery comes in.”
 
+Service Discovery is the process that allows a Pod to find the Service in the first place, usually by its human-readable name. 
+
+###################################
+# Exporters
+
+“Prometheus cannot understand everything directly.”
+
+So we use:
+
+Node Exporter → system metrics
+kube-state-metrics → K8s objects
+custom app metrics
+
+# Grafana
+Prometheus = storage + brain
+Grafana = visualization layer
+
+# Flow
+App / Exporters
+      ↓
+/metrics endpoint
+      ↓
+Prometheus (scrapes + stores)
+      ↓
+PromQL queries
+      ↓
+Grafana dashboards
+
+################################
+Execution

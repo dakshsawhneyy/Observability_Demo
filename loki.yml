@@ -87,3 +87,13 @@ Labels:
 - labels = metadata
 - used for querying
 
+######################
+Querying Logs
+
+LogQL = like PromQL but for logs
+
+########################
+# -------- EXECUTION
+
+
+

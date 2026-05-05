@@ -36,6 +36,7 @@ Application → Exposes /metrics → Prometheus scrapes → stores → query (Pr
 
 
 Prometheus is like a health checker — it keeps asking: ‘Are you alive?
+##################################
 
 # Kubernetes Challenge
 In Kubernetes, pods are dynamic — IP changes, scaling happens.

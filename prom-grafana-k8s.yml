@@ -1,1 +1,46 @@
+Your Kubernetes app is live. Suddenly latency spikes. Users complain.
+What will you check first?
+
+Logs? → Too detailed, slow
+Traces? → Deep debugging
+Metrics? → Fast signal
+
+Metrics = first line of defense
+
+# What is Observability?
+Observability is the ability to understand what’s happening inside a system by looking at its outputs.
+
+Logs → What happened
+Metrics → How much/how fast
+Traces → Where is the delay
+
+############################
+What is Prometheus?
+“Prometheus is NOT just a tool — it’s a pull-based monitoring system.”
+
+Key Concepts:
+- Time-series database
+- Pull model (important!)
+- Targets + exporters
+- Metrics format (key-value pairs)
+
+# Flow
+Application → Exposes /metrics → Prometheus scrapes → stores → query (PromQL)
+
+# Push vs Pull Model
+| Push (e.g., CloudWatch) | Pull (Prometheus)  |
+| ----------------------- | ------------------ |
+| App sends data          | Prometheus fetches |
+| Hard to control         | Centralized        |
+| Less reliable           | More reliable      |
+
+
+Prometheus is like a health checker — it keeps asking: ‘Are you alive?
+
+# Kubernetes Challenge
+In Kubernetes, pods are dynamic — IP changes, scaling happens.
+
+How will Prometheus know targets?
+
+“This is where Service Discovery comes in.”
 

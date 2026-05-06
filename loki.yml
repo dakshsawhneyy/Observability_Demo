@@ -95,5 +95,81 @@ LogQL = like PromQL but for logs
 ########################
 # -------- EXECUTION
 
+# Write Application in Docker Compose
+Not Complex Application, just a one-liner command printing log in file
 
+busybox image - an extremely lightweight Linux distribution—to run a simple shell script that generates continuous text output
+It comes directly with tools like echo, sleep, date
+
+# docker-compose.yml
+version: "3"
+
+services:
+
+  app:
+    image: busybox
+    container_name: log-generator
+    command: >
+      sh -c '
+      while true; do
+        echo "$(date) INFO User Login Success" >> /logs/app.log;
+        echo "$(date) ERROR Payment Failed" >> /logs/app.log;
+        sleep 2;
+      done
+      '
+    volumes:
+      - ./logs:/logs
+
+  # Setup Loki and Grafana as well
+
+  loki:
+    image: grafana/loki:2.9.0
+    container_name: loki
+    ports:
+      - "3100:3100"
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+
+
+# Setup Ingestor -- Takes Logs and send them to Loki
+
+  promtail:
+    image: grafana/promtail:2.9.0
+    container_name: promtail
+    volumes:
+      - ./logs:/var/log
+      - ./promtail-config.yaml:/etc/promtail/config.yaml
+    command: -config.file=/etc/promtail/config.yaml
+
+############ promtail-config.yaml
+
+# Promtail HTTP Server -- health checks, metrics
+server:
+  http_listen_port: 9080
+
+# How much of the log file has already been read?
+positions:
+  filename: /tmp/positions.yaml
+
+# Where to send the logs # This is Loki’s ingestion API.
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  # - job_name: nginx, backend, auth-service
+  - job_name: app-logs
+
+    # where to find targets
+    static_configs:
+      - targets:
+          - localhost
+
+        labels:
+          # This adds a label to every log.
+          job: app
+          __path__: /var/log/*.log
 

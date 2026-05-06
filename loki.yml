@@ -173,3 +173,8 @@ scrape_configs:
           job: app
           __path__: /var/log/*.log
 
+###################################
+Run Docker Compose
+Check Docker logs of containers
+
+

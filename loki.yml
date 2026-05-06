@@ -193,3 +193,4 @@ Filter ERROR Logs
 echo "CRITICAL Database Connection Failed" >> logs/app.log
 {job="app"} |= "CRITICAL"
 
+# Create Dashboards

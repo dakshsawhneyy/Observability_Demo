@@ -181,5 +181,15 @@ Check Docker logs of containers
 
 Go to Explore Section and add labels
 
+#################
 
+We are queries through labels
+
+Filter ERROR Logs
+{job="app"} |= "ERROR"
+{job="app"} |= "INFO"
+
+# Generate a dynamic message
+echo "CRITICAL Database Connection Failed" >> logs/app.log
+{job="app"} |= "CRITICAL"
 

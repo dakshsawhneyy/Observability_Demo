@@ -194,3 +194,6 @@ echo "CRITICAL Database Connection Failed" >> logs/app.log
 {job="app"} |= "CRITICAL"
 
 # Create Dashboards
+
+# Create Error Count Metric
+count_over_time({job="app"} |= "ERROR"[1m])

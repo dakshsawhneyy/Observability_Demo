@@ -177,4 +177,9 @@ scrape_configs:
 Run Docker Compose
 Check Docker logs of containers
 
+# Add Loki as Data Source in Grafana
+
+Go to Explore Section and add labels
+
+
 

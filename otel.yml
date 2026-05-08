@@ -68,4 +68,12 @@ Now that we understand tracing… how do we implement it consistently across sys
 - OpenTelemetry
 
 ##############################
+Problem OpenTelemtry Solving:
+- you have 100's of microservices
+- Write in promclient but unable to migrate -- so effort
+
+Opentelemtry - standard:
+- Defining APIs, Exporters and SDKs
+
+
 

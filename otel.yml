@@ -89,6 +89,12 @@ With Help of Trace ID
 
 ##############################
 Problem OpenTelemtry Solving:
+
+- vendor lock-in problem
+- every vendor had own SDK
+- migration pain
+
+Example: 
 - you have 100's of microservices
 - Write in promclient but unable to migrate -- so effort
 
@@ -98,6 +104,7 @@ Opentelemtry - standard:
 
 All Companies have agreed to accept this standard
 
+OpenTelemetry unified observability standards.
 ##############################
 
 Flow: 
@@ -120,6 +127,16 @@ Can attach anything to backend - Prometheus, Jaeger
 # Example: Prometheus
 Prometheus Architecture:
 - Retriver -> TSDB -> HTTP Server -> Queries
+
+
+Question: Why Collector?
+Without collector, every microservice directly talks to backend.
+
+Problem:
+- configuration duplication
+- scalability issues
+- vendor coupling
+
 
 ###########################
 

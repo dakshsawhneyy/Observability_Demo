@@ -156,7 +156,29 @@ Sampling Comes in for this
 
 EXECUTION !!!
 
+# Flow
+Client
+   ↓
+API Service (Node.js)
+   ↓
+Payment Service (Node.js)
+   ↓
+OpenTelemetry SDK
+   ↓
+SigNoz
 
 
+# Run SigNoz in Docker Container
+git clone https://github.com/SigNoz/signoz.git
+cd signoz/deploy/docker
+docker compose up -d
 
+Open:
+http://localhost:8080
+
+This starts:
+
+SigNoz
+ClickHouse
+OTel Collector
 

@@ -80,4 +80,24 @@ All Companies have agreed to accept this standard
 
 ##############################
 
+Flow: 
+
+Microservice(developers)
+  ↓
+Write Otel Api's/SDKs (Logs, Metrics, Traces)
+  ↓
+OTel Reciever/Collector (Limit - Excess Logs)
+  ↓
+Otel Processor
+  ↓
+Otel Exporter (Export Config File)
+  ↓
+Backend
+
+# Now backend is flexible
+Can attach anything to backend - Prometheus, Jaeger
+
+# Example: Prometheus
+Prometheus Architecture:
+- Retriver -> TSDB -> HTTP Server -> Queries
 

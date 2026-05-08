@@ -65,6 +65,17 @@ Span:
 --- authentication
 --- cache lookup
 
+
+Example: User clicks PAY NOW
+1. API Gateway receives request
+2. Auth Service validates token
+3. Payment Service processes transaction
+4. Inventory Service reserves item
+5. DB updates order
+
+--- each becomes a span
+--- together become a trace
+
 Trace ID:
 - Every request gets a unique Trace ID
 

@@ -1,1 +1,42 @@
+Imagine your application has 20 microservices. 
+A user clicks ‘Pay Now’… and payment fails after 8 seconds. Where do you even start debugging?
+
+“Logs?”
+“Metrics?”
+“Which service?”
+“What if multiple services are involved?”
+
+This is where Traces comes in 
+
+- Logs tell events
+- Metrics tell trends
+- Traces tell journeys
+
+“Distributed tracing answers one important question:
+WHAT happened to this request across the entire system?”
+
+
+
+- In distributed systems, requests travel across multiple services.
+
+Metrics:
+-> show latency spike
+Logs:
+-> show errors
+
+But neither clearly answers:
+“Where exactly did the delay happen?”
+
+-> That’s the job of tracing.
+
+############################
+Observability Recap
+the ability to understand a system's internal state by analyzing its external outputs
+
+| Pillar  | Purpose |
+| ------- | ------- |
+| Metrics | What    |
+| Logs    | Why     |
+| Traces  | Where   |
+
 

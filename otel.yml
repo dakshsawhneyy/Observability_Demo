@@ -41,3 +41,23 @@ Then explain issues:
 - timeouts
 - dependency chains
 
+Example: 
+Payment service looks healthy individually.
+But when called from API Gateway, latency becomes 5 seconds.
+
+Tracing Helps in solving this
+###################################
+
+Components of Tracing
+
+Trace:
+- complete lifecycle of a request.
+- User Request = One Trace
+
+Span:
+- one unit of work.
+--- API call
+--- DB query
+--- authentication
+--- cache lookup
+

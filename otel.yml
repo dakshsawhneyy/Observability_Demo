@@ -157,6 +157,6 @@ Sampling Comes in for this
 EXECUTION !!!
 
 Cloud Environment Needed
-Exporter -> ClickHouse (Required by SigNoz) -> SigNoz (Dashboards)
+Exporter(:4318) -> ClickHouse (Required by SigNoz) -> SigNoz (:8080) (Dashboards)
 
 

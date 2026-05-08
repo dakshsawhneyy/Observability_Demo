@@ -182,3 +182,31 @@ SigNoz
 ClickHouse
 OTel Collector
 
+ShowCase Application 
+
+###########################
+Create Docker Compose
+
+version: '3.9'
+
+services:
+
+  api-service:
+    build: ./api-service
+    ports:
+      - "3000:3000"
+
+  payment-service:
+    build: ./payment-service
+    ports:
+      - "4000:4000"
+
+########################
+Open browser:
+
+http://localhost:3000/pay
+Refresh multiple times.
+
+Go to signoz and see traces
+
+

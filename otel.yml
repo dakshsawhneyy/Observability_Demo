@@ -156,6 +156,7 @@ Sampling Comes in for this
 
 EXECUTION !!!
 
-<img width="868" height="433" alt="image" src="https://github.com/user-attachments/assets/8feefa94-c7ca-4a76-899b-ec98fb166c08" />
+Cloud Environment Needed
+Exporter -> ClickHouse (Required by SigNoz) -> SigNoz (Dashboards)
 
 

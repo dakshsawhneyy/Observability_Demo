@@ -209,4 +209,13 @@ Refresh multiple times.
 
 Go to signoz and see traces
 
+#######################
+
+Try to add some errors
+
+if (Math.random() > 0.7) {
+    throw new Error("Payment Failed");
+} 
+
+See errors being red
 

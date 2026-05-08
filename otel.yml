@@ -45,6 +45,10 @@ Example:
 Payment service looks healthy individually.
 But when called from API Gateway, latency becomes 5 seconds.
 
+Why Logs Fail here:
+- In monoliths, logs worked well because everything was in one place.
+- In distributed systems, logs are spread across multiple services
+
 Tracing Helps in solving this
 ###################################
 
@@ -66,6 +70,11 @@ Trace ID:
 
 Now that we understand tracing… how do we implement it consistently across systems?
 - OpenTelemetry
+
+Now Since: - In distributed systems, logs are spread across multiple services
+How do we connect these logs to ONE user request?
+
+With Help of Trace ID
 
 ##############################
 Problem OpenTelemtry Solving:
@@ -100,4 +109,22 @@ Can attach anything to backend - Prometheus, Jaeger
 # Example: Prometheus
 Prometheus Architecture:
 - Retriver -> TSDB -> HTTP Server -> Queries
+
+###########################
+
+Question: Can we trace EVERY request in production?
+NO Right ?
+
+Why?:
+- cost
+- storage
+- performance
+
+Sampling Comes in for this
+- selecting a subset of application requests to record and store
+- rather than capturing every single one
+
+##########################
+
+
 

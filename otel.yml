@@ -61,3 +61,11 @@ Span:
 --- authentication
 --- cache lookup
 
+Trace ID:
+- Every request gets a unique Trace ID
+
+Now that we understand tracing… how do we implement it consistently across systems?
+- OpenTelemetry
+
+##############################
+

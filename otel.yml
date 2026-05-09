@@ -12,7 +12,7 @@ This is where Traces comes in
 - Metrics tell trends
 - Traces tell journeys
 
-“Distributed tracing answers one important question:
+“tracing answers one important question:
 WHAT happened to this request across the entire system?”
 
 - In distributed systems, requests travel across multiple services.

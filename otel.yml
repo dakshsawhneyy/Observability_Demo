@@ -49,6 +49,12 @@ Why Logs Fail here:
 - In monoliths, logs worked well because everything was in one place.
 - In distributed systems, logs are spread across multiple services
 
+How even centralized logging doesn't solve this problem
+
+"Needle in a Haystack" Problem:
+   You are searching millions of log lines for a specific user action, 
+   making it slow and inefficient to pinpoint the exact failure
+  
 Tracing Helps in solving this
 ###################################
 

@@ -96,10 +96,6 @@ With Help of Trace ID
 ##############################
 Problem OpenTelemtry Solving:
 
-- vendor lock-in problem
-- every vendor had own SDK
-- migration pain
-
 Example: 
 - you have 100's of microservices
 - Write in promclient but unable to migrate -- so effort
@@ -109,6 +105,10 @@ Opentelemtry - standard:
 - Easily migrate to another stack
 
 All Companies have agreed to accept this standard
+
+- vendor lock-in problem
+- every vendor had own SDK
+- migration pain
 
 OpenTelemetry unified observability standards.
 ##############################
